@@ -1,0 +1,56 @@
+// Card shuffling and dealing.
+
+public class DeckOfCardsTest {
+    // execute application
+    public static void main(String[] args) {
+        // inits deck of cards
+        DeckOfCards myDeckOfCards = new DeckOfCards();
+
+
+        //shuffles deck
+        //myDeckOfCards.shuffle();
+
+
+        // print all 52 Cards in the order in which they are dealt
+        Card cc = myDeckOfCards.dealCard();
+        int i = 0;
+        while(cc != null){
+            System.out.printf("%-19s", cc.toString());
+            cc = myDeckOfCards.dealCard();
+            i++;
+            if (i % 4 == 0) { // output a newline after every fourth card
+                System.out.println();
+            }
+        }
+        myDeckOfCards.shuffle();
+
+
+        // init 2 players
+        PokerPlayer pokerPlayer1 = new PokerPlayer();
+        PokerPlayer pokerPlayer2 = new PokerPlayer();
+        // deal each player 5 cards
+        for (int c = 0; c < 5; c++){
+            pokerPlayer1.TakeCard(myDeckOfCards.dealCard());
+            pokerPlayer2.TakeCard(myDeckOfCards.dealCard());
+        }
+        System.out.println("Player 1 has " + pokerPlayer1.ShowHand());
+        System.out.println("Player 2 has " + pokerPlayer2.ShowHand());
+        int score1 = pokerPlayer1.EvalHand();
+        int score2 = pokerPlayer2.EvalHand();
+
+        if (score1 < score2){
+            System.out.println("Player 2 has won!");
+        }
+        else if (score1 == score2){
+            System.out.println("Tie!");
+        }
+        else {
+            System.err.println("Player 1 has won!");
+        }
+        
+        
+        
+        
+        
+    }
+} 
