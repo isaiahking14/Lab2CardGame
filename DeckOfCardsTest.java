@@ -42,7 +42,19 @@ public class DeckOfCardsTest {
             System.out.println("Player 2 has won!");
         }
         else if (score1 == score2){
-            System.out.println("Tie!");
+            int face1 = pokerPlayer1.TotalFaceValue();
+            int face2 = pokerPlayer2.TotalFaceValue();
+            if (face1 < face2 ){
+                System.out.println("Player 2 has won due to having higher face values!");
+            }
+            else if (face1 > face2){
+                System.out.println("Player 1 has won due to higher face values!");
+
+            }
+            else{
+                System.out.println("Tie!");
+            }
+            
         }
         else {
             System.err.println("Player 1 has won!");
