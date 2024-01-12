@@ -57,7 +57,17 @@ public class PokerPlayer{
         }
 
     }
-
+     public int TotalFaceValue() {
+        int totalFaceValue = 0;
+    
+        for (Card card : pokerHand) {
+            if (card != null) {
+                totalFaceValue += card.GetFaceValue();
+            }
+        }
+    
+        return totalFaceValue;
+    }
 
     private boolean hasPair(){
         Integer[] faceValue = Arrays.stream(pokerHand).map(card -> card.GetFaceValue()).toArray(Integer[]::new);
