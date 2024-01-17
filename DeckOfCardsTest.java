@@ -7,10 +7,6 @@ public class DeckOfCardsTest {
         DeckOfCards myDeckOfCards = new DeckOfCards();
 
 
-        //shuffles deck
-        //myDeckOfCards.shuffle();
-
-
         // print all 52 Cards in the order in which they are dealt
         Card cc = myDeckOfCards.dealCard();
         int i = 0;
@@ -33,14 +29,19 @@ public class DeckOfCardsTest {
             pokerPlayer1.TakeCard(myDeckOfCards.dealCard());
             pokerPlayer2.TakeCard(myDeckOfCards.dealCard());
         }
+        // prints out the matches
         System.out.println("Player 1 has " + pokerPlayer1.ShowHand());
         System.out.println("Player 2 has " + pokerPlayer2.ShowHand());
+        
+        // store the scores
         int score1 = pokerPlayer1.EvalHand();
         int score2 = pokerPlayer2.EvalHand();
-
+        
+        // determine winner
         if (score1 < score2){
             System.out.println("Player 2 has won!");
         }
+            
         else if (score1 == score2){
             int face1 = pokerPlayer1.TotalFaceValue();
             int face2 = pokerPlayer2.TotalFaceValue();
@@ -56,13 +57,10 @@ public class DeckOfCardsTest {
             }
             
         }
+            
         else {
             System.err.println("Player 1 has won!");
         }
-        
-        
-        
-        
         
     }
 } 
