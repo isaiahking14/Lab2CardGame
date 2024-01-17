@@ -1,9 +1,9 @@
 import java.util.Arrays;
 
 public class PokerPlayer{
-
+    // inits pokerHand array
     private Card[] pokerHand = new Card[5]; 
-    
+    // fills array
     public boolean TakeCard(Card card){
         for (int i = 0; i < pokerHand.length; i++){
             Card temp = pokerHand[i];
@@ -15,7 +15,7 @@ public class PokerPlayer{
         return false;
 
     }
-
+    // counts the amount of !'s in the returned string to score as a point system
     public int EvalHand(){
         String temp = ShowHand();
         int count = 0;
@@ -28,7 +28,7 @@ public class PokerPlayer{
         return count;
     }
     
-
+    // returns the following strings if the statements are true
     public String ShowHand(){
         // order of eval in most important
         if (hasAFullHouse() == true){
@@ -57,6 +57,7 @@ public class PokerPlayer{
         }
 
     }
+     // method to get the total face value in case of a tie 
      public int TotalFaceValue() {
         int totalFaceValue = 0;
     
@@ -68,7 +69,9 @@ public class PokerPlayer{
     
         return totalFaceValue;
     }
-
+    
+    // bools return true if the following statements are true
+    // converts pokerHand array into a stream, gives the items a face value, then looks for matches
     private boolean hasPair(){
         Integer[] faceValue = Arrays.stream(pokerHand).map(card -> card.GetFaceValue()).toArray(Integer[]::new);
         return Arrays.stream(faceValue).anyMatch(count -> count == 2);
