@@ -8,6 +8,8 @@ public class Card {
         this.face = cardFace; //initializes face of card
         this.suit = cardSuit; //initializes suit of card
     }
+
+    // returns the int value for the face of the card
     public int GetFaceValue() {
         switch (this.face) {
             case "Two": return 2;
@@ -27,7 +29,7 @@ public class Card {
         }
 
     }
-
+    // returns the int value for the suit for easier comparsion
     public int GetSuitValue() {
         switch (this.suit){
             case "Hearts": return 1;
